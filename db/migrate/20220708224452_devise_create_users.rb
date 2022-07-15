@@ -4,7 +4,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :username 
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
@@ -18,7 +17,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
-      # t.datetime :last_sign_in_at
+      t.datetime :last_sign_in_at
       # t.inet     :current_sign_in_ip
       # t.inet     :last_sign_in_ip
 
@@ -35,6 +34,11 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
 
       t.timestamps null: false
+
+      t.datetime :birth_date, null: false, default: Date.new(2022, 1, 1)
+      t.string :given_name, null: false, default: ""
+      t.string :family_name, null: false, default: ""
+      t.string :phone_number
     end
 
     add_index :users, :email,                unique: true
