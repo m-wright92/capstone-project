@@ -11,7 +11,7 @@
 # Comment.destroy_all
 # CommentReaction.destroy_all
 # PostReaction.destroy_all
-# Friendship.destroy_all
+Friendship.destroy_all
 
 
 # 15.times do
@@ -51,8 +51,8 @@
 #   p "Created #{CommentReaction.count} comment reactions"
 # end
 
-# 10.times do
-#   Friendship.create!(user_id: User.all.sample.id,
-#                       friend_id: User.all.sample.id)
-#   p "Created #{Friendship.count} friendships"
-# end
+10.times do
+  Friendship.create!(user_id: User.all.sample.id,
+                      friend_id: User.all.sample.id)
+  p "Created #{Friendship.count} friendships"
+end
