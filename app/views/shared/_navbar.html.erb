@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Capstone Project</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div  id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+        <li id="user" class="nav-item mr-auto"> 
+        <%= current_user.given_name %>
+        </li>
+
+          <li class="nav-item mr-auto">
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+        <% else %>
+        <li class="nav-item mr-auto">
+          <%= link_to 'register', new_user_registration_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item mr-auto">
+          <%= link_to 'sign in', new_user_session_path, class: 'nav-link' %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>

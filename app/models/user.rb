@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :post_reactions, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :comment_reactions, dependent: :destroy
+
+  validates :given_name, presence: true
+  validates :family_name, presence: true
+  validates :birth_date, presence: true
 end
