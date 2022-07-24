@@ -1,2 +1,7 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Placeholder</h1>
+
+<% if current_user %>
+  <p>You are signed in as <%= current_user.given_name %>.</p>
+<% else %>
+  <p>Please sign in to view this site.</p>
+<% end %>
