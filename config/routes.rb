@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update, :delete] do
     resources :posts, except: [:index]
   end
+
+  get '/feed', to: 'users#feed', as: :feed
 end

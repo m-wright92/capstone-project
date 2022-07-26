@@ -19,6 +19,11 @@ class UsersController < ApplicationController
     render 'profile'
   end
 
+  def feed
+    @user = User.find(current_user.id)
+    render 'feed'
+  end
+
   private
 
   def user_params
