@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe Friendship do
   before(:each) do
-    user1 = User.create!(email: Faker::Internet.email,
+    @user1 = User.create!(email: Faker::Internet.email,
                           password: 'password',
                           birth_date: Faker::Date.between(from: '1930-01-01', to: '2000-01-01'),
                           given_name: Faker::Name.first_name,
                           family_name: Faker::Name.last_name,
                           phone_number: Faker::PhoneNumber.phone_number)
-    user2 = User.create!(email: Faker::Internet.email,
+    @user2 = User.create!(email: Faker::Internet.email,
                           password: 'password',
                           birth_date: Faker::Date.between(from: '1930-01-01', to: '2000-01-01'),
                           given_name: Faker::Name.first_name,
@@ -26,4 +26,18 @@ describe Friendship do
       expect(friendship).to_not be_valid
     end
   end
+
+  describe '#accepted_request?' do
+    it 'should return true if the friendship is accepted' do
+      friendship = Friendship.create(user_id: @user1.id, friend_id: @user2.id, confirmed: true)
+      expect(Friendship.accepted_request?(@user1.id, @user2.id)).to eq(true)
+    end
+
+    it 'should return false if the friendship is not accepted' do
+      friendship = Friendship.create(user_id: @user1.id, friend_id: @user2.id, confirmed: false)
+      expect(Friendship.accepted_request?(@user1.id, @user2.id)).to eq(false)
+    end
+  end
+
+
 end
