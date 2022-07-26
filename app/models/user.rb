@@ -14,4 +14,22 @@ class User < ApplicationRecord
   validates :given_name, presence: true
   validates :family_name, presence: true
   validates :birth_date, presence: true
+
+  def full_name
+    "#{given_name} #{family_name}"
+  end
+
+  def age
+    now = Time.now.utc.to_date
+    now.year - birth_date.year - ((now.month > birth_date.month || (now.month == birth_date.month && now.day >= birth_date.day)) ? 0 : 1)
+  end
+
+  def friend_requests
+    Friendship.where(friend_id: id, confirmed: false)
+    Friendship.where(user_id: id, confirmed: false)
+  end
+
+  def send_friend_request(friend)
+    Friendship.create(user_id: id, friend_id: friend.id, confirmed: false)
+  end
 end
