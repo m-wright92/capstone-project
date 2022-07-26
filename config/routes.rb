@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:show, :edit, :update, :delete] do
+  resources :users, only: [:index, :show, :edit, :update, :delete] do
     resources :posts, except: [:index]
   end
 

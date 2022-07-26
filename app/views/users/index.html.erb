@@ -1,0 +1,10 @@
+<% if @users %>
+  <% @users.each do |user| %>
+    <p>
+      <%= link_to user.given_name + " " + user.family_name, user_path(user) %>
+    </p>
+  <% end %>
+<% else %>
+  <p>No users found</p>
+<% end %>
+
