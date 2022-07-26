@@ -39,5 +39,10 @@ describe Friendship do
     end
   end
 
-
+  describe '#find_friendship' do
+    it 'should return the friendship if it exists' do
+      friendship = Friendship.create(user_id: @user1.id, friend_id: @user2.id, confirmed: true)
+      expect(Friendship.find_friendship(@user1.id, @user2.id)).to eq(friendship.id)
+    end
+  end
 end
