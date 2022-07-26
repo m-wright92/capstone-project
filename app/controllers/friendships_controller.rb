@@ -7,4 +7,6 @@ class FriendshipsController < ApplicationController
     redirect_to '/feed'
   end
 
+
+
 end
