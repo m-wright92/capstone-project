@@ -8,10 +8,15 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = "You're signed up!"
       session[:user_id] = @user.id
-      redirect_to root_path
+      render root_path
     else
       redirect_to '/signup'
     end
+  end
+
+  def show 
+    @user = User.find(current_user.id)
+    render 'profile'
   end
 
   private

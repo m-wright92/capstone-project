@@ -1,7 +1,8 @@
 <h1>Welcome to Placeholder</h1>
 
-<% if current_user %>
-  <p>You are signed in as <%= current_user.given_name %>.</p>
-<% else %>
+<% if !current_user %>
   <p>Please sign in to view this site.</p>
+<% else %>
+  <p>You are signed in as <%= current_user.given_name %>.</p>
+  <%= link_to "View Profile", user_path(@user) %>
 <% end %>
