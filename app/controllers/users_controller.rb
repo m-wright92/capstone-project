@@ -21,18 +21,26 @@ class UsersController < ApplicationController
   end
 
   def show 
-    @user = User.find(params[:id])
+    @friend = User.find(params[:id])
+    @user = User.find(current_user.id)
     render 'profile'
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(current_user.id.to_s)
     render 'edit_profile'
   end
 
   def feed
     @user = User.find(current_user.id)
     render 'feed'
+  end
+
+  def add_friend
+    @user = current_user
+    @friend = User.find(params[:friend_id])
+    @user.send_friend_request(@friend)
+    redirect_to user_path(@user)
   end
 
   private
