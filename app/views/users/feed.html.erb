@@ -3,8 +3,10 @@
 
 <%= link_to "View all users", users_path %> 
 
-<%= render "layouts/post_form" %>
+<div id="new_post_form">
+  <%= render "layouts/post_form" %>
+</div>
 
-<% @posts.each do |post| %>
-  <%= render "layouts/post", :post => post %>
-<% end %>
+<div id="feed">
+  <%= render "layouts/post", :post => @post %>
+</div>

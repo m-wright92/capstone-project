@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def feed
     @user = current_user
     @post = Post.new
-    @posts = Post.all
+    @posts = Post.most_recent_ten
     render 'feed'
   end
 

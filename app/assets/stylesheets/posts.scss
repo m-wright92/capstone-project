@@ -1,3 +1,54 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+body {
+  margin: 0;
+}
+
+div#new_post_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #0659ffc9;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div#feed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #0659ffc9;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #0659ffc9;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
