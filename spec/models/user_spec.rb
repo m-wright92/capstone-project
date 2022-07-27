@@ -57,8 +57,33 @@ RSpec.describe User, type: :model do
     it 'returns the friend requests of the user' do
       friends1 = Friendship.create(user_id: @user1.id, friend_id: @user2.id, confirmed: false)
       friends2 = Friendship.create(user_id: @user1.id, friend_id: @user3.id, confirmed: false)
-      expect(@user1.friend_requests).to eq([friends1, friends2])
+      expect(@user2.friend_requests).to eq([friends1])
+      expect(@user3.friend_requests).to eq([friends2])
     end
   end
   
+
+  describe '#friends' do
+    it 'returns the friends of the user' do
+      friends1 = Friendship.create(user_id: @user1.id, friend_id: @user2.id, confirmed: true)
+      friends2 = Friendship.create(user_id: @user1.id, friend_id: @user3.id, confirmed: true)
+      expect(@user1.friends).to eq([@user2, @user3])
+    end
+  end
+
+  describe '#friends_with?' do
+    it 'returns true if the user is friends with the other user' do
+      friends1 = Friendship.create(user_id: @user1.id, friend_id: @user2.id, confirmed: false)
+      friends2 = Friendship.create(user_id: @user1.id, friend_id: @user3.id, confirmed: false)
+    end
+  end
+
+  describe '#send_friend_request' do
+    it 'sends a friend request to the other user' do
+      @user1.send_friend_request(@user2)
+      @user1.send_friend_request(@user3)
+      expect(@user2.friend_requests.count).to eq(1)
+      expect(@user3.friend_requests.count).to eq(1)
+    end
+  end
 end
