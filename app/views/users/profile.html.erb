@@ -3,11 +3,14 @@
 <%# for current users profile %>
 <% if current_user === @friend %>
   <%= link_to "Update Profile", edit_user_path(@user) %>
-  
+
 
 <%# for viewing others profile %>
+<% elsif !@user.friends_with?(@friend) %>
+    <%= button_to "Add Friend", user_add_friend_path(@user, @friend), params: {user_id: @user.id, friend_id: @friend.id} %>
 <% else %>
-  <%= button_to "Add Friend", user_add_friend_path(@user, @friend), params: {user_id: @user.id, friend_id: @friend.id} %>
+  <%# for when we build delete friend functionality  %>
+    <%# <%= button_to "Remove Friend", user_remove_friend_path(@user, @friend), params: {user_id: @user.id, friend_id: @friend.id} %> %>
 
 <% end %>
 

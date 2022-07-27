@@ -26,7 +26,10 @@ class User < ApplicationRecord
 
   def friend_requests
     Friendship.where(friend_id: id, confirmed: false)
-    # Friendship.where(user_id: id, confirmed: false)
+  end
+
+  def requested?(user)
+    Friendship.where(user_id: id).any?
   end
 
   def friends

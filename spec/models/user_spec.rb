@@ -16,11 +16,11 @@ RSpec.describe User, type: :model do
                           family_name: Faker::Name.last_name,
                           phone_number: Faker::PhoneNumber.phone_number)
      @user3 = User.create!(email: Faker::Internet.email,
-                            password: 'password',
-                            birth_date: Faker::Date.between(from: '1930-01-01', to: '2000-01-01'),
-                            given_name: Faker::Name.first_name,
-                            family_name: Faker::Name.last_name,
-                            phone_number: Faker::PhoneNumber.phone_number)
+                          password: 'password',
+                          birth_date: Faker::Date.between(from: '1930-01-01', to: '2000-01-01'),
+                          given_name: Faker::Name.first_name,
+                          family_name: Faker::Name.last_name,
+                          phone_number: Faker::PhoneNumber.phone_number)
   end
 
   describe 'associations' do
@@ -84,6 +84,13 @@ RSpec.describe User, type: :model do
       @user1.send_friend_request(@user3)
       expect(@user2.friend_requests.count).to eq(1)
       expect(@user3.friend_requests.count).to eq(1)
+    end
+  end
+
+  describe '#requested?' do
+    it 'returns true if the user has requested the other user' do
+      @user1.send_friend_request(@user2)
+      expect(@user1.requested?(@user2)).to eq(true)
     end
   end
 end

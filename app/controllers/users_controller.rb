@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     render 'index'
   end
 
-  def new 
+  def new
     @user = User.new
   end
 
@@ -43,6 +43,23 @@ class UsersController < ApplicationController
     @user = current_user
     @friend = User.find(params[:friend_id])
     @user.send_friend_request(@friend)
+    flash[:success] = "Friend request sent!"
+    redirect_to user_path(@friend)
+  end
+
+  def accept_friend
+    @user = current_user
+    @friend = User.find(params[:friend_id])
+    @friendship = Friendship.where(user_id: @friend.id, friend_id: @user.id).first
+    @friendship.update(confirmed: true)
+    redirect_to user_path(@user)
+  end
+
+  def decline_friend
+    @user = current_user
+    @friend = User.find(params[:friend_id])
+    @friendship = Friendship.where(user_id: @friend.id, friend_id: @user.id).first
+    @friendship.destroy
     redirect_to user_path(@user)
   end
 
@@ -57,5 +74,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :birth_date, :given_name, :family_name, :phone_number)
   end
-
 end
