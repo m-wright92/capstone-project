@@ -46,6 +46,12 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def friend_requests
+    @user = current_user
+    @friend_requests = @user.friend_requests
+    render 'friend_requests'
+  end
+
   private
 
   def user_params

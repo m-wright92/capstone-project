@@ -2,6 +2,9 @@
   <a class="navbar-brand" href="/">Capstone Project</a>
   <ul class="nav navbar-nav">
     <% if user_signed_in? %>
+      <li id="friend_requests" class="nav-item">
+        <%= link_to "Friend Requests", user_friend_requests_path(current_user), class: "nav-link" %>
+      </li>
       <li id="user" class="nav-item">
         <%= link_to current_user.given_name, user_path(current_user) %>
       </li>

@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update, :delete, :feed] do
     post :add_friend
+    post :accept_friend
+    post :reject_friend
+    
+    get :friend_requests
     resources :posts, except: [:index]
   end
 
