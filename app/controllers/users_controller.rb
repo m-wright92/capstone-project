@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def show 
     @friend = User.find(params[:id])
     @user = User.find(current_user.id)
+    @friend_requests = @user.friend_requests
     render 'profile'
   end
 

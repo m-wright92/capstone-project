@@ -1,9 +1,13 @@
 <h1>This is the profile view for user <%= @friend.full_name %></h1>
 
+<%# for current users profile %>
 <% if current_user === @friend %>
   <%= link_to "Update Profile", edit_user_path(@user) %>
-<%# <% end %>
+  
+
+<%# for viewing others profile %>
 <% else %>
   <%= button_to "Add Friend", user_add_friend_path(@user, @friend), params: {user_id: @user.id, friend_id: @friend.id} %>
+
 <% end %>
 
