@@ -33,7 +33,9 @@ class UsersController < ApplicationController
   end
 
   def feed
-    @user = User.find(current_user.id)
+    @user = current_user
+    @post = Post.new
+    @posts = Post.all
     render 'feed'
   end
 

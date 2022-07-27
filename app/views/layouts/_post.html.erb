@@ -1,0 +1,13 @@
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <div>
+    <p class=<%= User.find(post.user_id).full_name%>><%= User.find(post.user_id).full_name %></p>
+    <%= post.post_body %> 
+  </div>
+  <% end %>
+<% else %>
+  <h1>There are no posts to display</h1>
+<% end %>
+
+
+

@@ -2,3 +2,9 @@
 <%= current_user.given_name %>
 
 <%= link_to "View all users", users_path %> 
+
+<%= render "layouts/post_form" %>
+
+<% @posts.each do |post| %>
+  <%= render "layouts/post", :post => post %>
+<% end %>
