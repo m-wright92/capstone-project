@@ -7,7 +7,11 @@
 
 <%# for viewing others profile %>
 <% elsif !@user.friends_with?(@friend) %>
+  <% if @user.requested?(@friend) %>
+    <button style="display: none">
+  <% else %>
     <%= button_to "Add Friend", user_add_friend_path(@user, @friend), params: {user_id: @user.id, friend_id: @friend.id} %>
+  <% end %>
 <% else %>
   <%# for when we build delete friend functionality  %>
     <%# <%= button_to "Remove Friend", user_remove_friend_path(@user, @friend), params: {user_id: @user.id, friend_id: @friend.id} %> %>
