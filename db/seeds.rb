@@ -24,35 +24,35 @@
   p "Created #{User.count} users"                  
 end
 
-# 10.times do
-#   Post.create!(user_id: User.all.sample.id,
-#                 post_body: Faker::Lorem.paragraph)
-#   p "Created #{Post.count} posts"
-# end
+10.times do
+  Post.create!(user_id: User.all.sample.id,
+                post_body: Faker::Lorem.paragraph)
+  p "Created #{Post.count} posts"
+end
 
-# 20.times do
-#   Comment.create!(user_id: User.all.sample.id,
-#                   post_id: Post.all.sample.id,
-#                   comment_body: Faker::Lorem.paragraph)
-#   p "Created #{Comment.count} comments"
-# end
+20.times do
+  Comment.create!(user_id: User.all.sample.id,
+                  post_id: Post.all.sample.id,
+                  comment_body: Faker::Lorem.paragraph)
+  p "Created #{Comment.count} comments"
+end
 
-# 30.times do
-#   PostReaction.create!(user_id: User.all.sample.id,
-#                        post_id: Post.all.sample.id,
-#                        reaction_type: %w[like dislike].sample)
-#   p "Created #{PostReaction.count} post reactions"           
-# end
+30.times do
+  PostReaction.create!(user_id: User.all.sample.id,
+                       post_id: Post.all.sample.id,
+                       reaction_type: %w[like dislike].sample)
+  p "Created #{PostReaction.count} post reactions"           
+end
 
-# 30.times do
-#   CommentReaction.create!(user_id: User.all.sample.id,
-#                           comment_id: Comment.all.sample.id,
-#                           reaction_type: %w[like dislike].sample)
-#   p "Created #{CommentReaction.count} comment reactions"
-# end
+30.times do
+  CommentReaction.create!(user_id: User.all.sample.id,
+                          comment_id: Comment.all.sample.id,
+                          reaction_type: %w[like dislike].sample)
+  p "Created #{CommentReaction.count} comment reactions"
+end
 
-# 10.times do
-#   Friendship.create!(user_id: User.all.sample.id,
-#                       friend_id: User.all.sample.id)
-#   p "Created #{Friendship.count} friendships"
-# end
+10.times do
+  Friendship.create!(user_id: User.all.sample.id,
+                      friend_id: User.all.sample.id)
+  p "Created #{Friendship.count} friendships"
+end
