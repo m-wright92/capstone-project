@@ -4,6 +4,9 @@ By Michael Wright
 
 This is a mock social media site for tech enthusiasts. It is a full-stack application built entirely through Ruby/Rails. It is a work in progress, and I will be adding more features in the near future.
 
+## Link to research repo
+https://github.com/m-wright92/capstone_research
+
 ## Technologies Used
 * Ruby 2.6.10
 * Rails 5.2.8
