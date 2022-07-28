@@ -11,7 +11,7 @@
 # Comment.destroy_all
 # CommentReaction.destroy_all
 # PostReaction.destroy_all
-Friendship.destroy_all
+# Friendship.destroy_all
 
 
 # 15.times do

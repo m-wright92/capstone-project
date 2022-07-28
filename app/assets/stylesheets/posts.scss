@@ -17,10 +17,20 @@ div#new_post_form {
   padding: 20px;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #0659ffc9;
+  background-color: #0379EB;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+  
+  textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 10px;
+    resize: none;
+  }
 }
 
 div#feed {
@@ -33,7 +43,7 @@ div#feed {
   padding: 20px;
   border: 1px solid black;
   border-radius: 5px;
-  background-color: #0659ffc9;
+  background-color: #0379EB;
   height: 59vh;
   width: 65%;
   margin-left: auto;
@@ -48,7 +58,7 @@ div#feed {
     margin-bottom: 20px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: #0659ffc9;
+    background-color: #ffffff57;
     width: 100%;
     margin-left: auto;
     margin-right: auto;

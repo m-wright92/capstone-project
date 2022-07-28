@@ -3,7 +3,7 @@
 <%= form_for [@user, @post] do |f| %>
   <%= f.label :user_id, style: 'display:none' %>
   <%= f.number_field :user_id, value: current_user.id, style: 'display:none' %>
-  <%= f.label :post_body %>
-  <%= f.text_area :post_body %>
+  <%= f.label :post_body, style: 'display:none'%>
+  <%= f.text_area :post_body, placeholder: "What's on your mind?" %>
   <%= f.submit %>
 <% end %>
