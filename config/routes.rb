@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   end
 
   get '/feed', to: 'users#feed', as: :user_feed
+
+  # to protect from wrong routes
+  get '*path', to: 'pages#home'
 end

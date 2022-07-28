@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= f.label :birth_date %><br />
-    <%= f.date_select :birth_date, autocomplete: "bday" %>
+    <%= f.date_select :birth_date, {:start_year => 1900, :end_year => Date.today.year} %>
   </div>
 
   <div class="actions">
