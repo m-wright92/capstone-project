@@ -4,6 +4,7 @@
 
 body {
   margin: 0;
+  height: 100vh;
 }
 
 div#new_post_form {
@@ -25,19 +26,20 @@ div#new_post_form {
 div#feed {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  position: relative;
   align-items: center;
-  margin-top: 20px;
+  overflow-y: auto;
   margin-bottom: 20px;
   padding: 20px;
   border: 1px solid black;
   border-radius: 5px;
   background-color: #0659ffc9;
-  width: 60%;
+  height: 59vh;
+  width: 65%;
   margin-left: auto;
   margin-right: auto;
   
-  div {
+  div.feed_post {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -51,4 +53,12 @@ div#feed {
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+div#feed::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }

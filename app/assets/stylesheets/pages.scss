@@ -6,13 +6,14 @@ body {
   margin: 0
 }
 
-nav {
-  background-color: #3425b9;
+nav#top {
+  background-color: #025fb9;
   padding: 5px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
 
   a {
     color: rgb(207, 21, 21);
