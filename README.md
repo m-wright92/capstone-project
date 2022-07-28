@@ -31,7 +31,6 @@ This is a social media site for tech enthusiasts. Currently users can create an 
 
 ## Known Bugs
 * You can see posts from users who are not your friends
-* You can see yourself in the list of users to add as a friend
 * You can't delete/edit posts
 
 

@@ -14,15 +14,15 @@
 # Friendship.destroy_all
 
 
-# 15.times do
-#   User.create!(email: Faker::Internet.email,
-#                 password: 'password',
-#                 birth_date: Faker::Date.between(from: '1930-01-01', to: '2000-01-01'),
-#                 given_name: Faker::Name.first_name,
-#                 family_name: Faker::Name.last_name,
-#                 phone_number: Faker::PhoneNumber.phone_number)
-#   p "Created #{User.count} users"                  
-# end
+15.times do
+  User.create!(email: Faker::Internet.email,
+                password: 'password',
+                birth_date: Faker::Date.between(from: '1930-01-01', to: '2000-01-01'),
+                given_name: Faker::Name.first_name,
+                family_name: Faker::Name.last_name,
+                phone_number: Faker::PhoneNumber.phone_number)
+  p "Created #{User.count} users"                  
+end
 
 # 10.times do
 #   Post.create!(user_id: User.all.sample.id,

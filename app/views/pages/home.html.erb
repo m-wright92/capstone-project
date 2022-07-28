@@ -1,8 +1,10 @@
-<h1>Welcome to Placeholder</h1>
+<div id="welcome">
+  <h1>Welcome to techNet!</h1>
 
-<% if !current_user %>
-  <p>Please sign in to view this site.</p>
-<% else %>
-  <p>You are signed in as <%= current_user.given_name %>.</p>
-  <%= link_to "View Profile", user_path(@user) %>
-<% end %>
+  <% if !current_user %>
+    <p>Please sign in to view this site.</p>
+  <% else %>
+    <p>You are signed in as <%= current_user.given_name %>.</p>
+    <%= link_to "View Profile", user_path(@user) %>
+  <% end %>
+</div>
